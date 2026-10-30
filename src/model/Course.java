@@ -21,8 +21,31 @@ public class Course {
         this.courseId = courseId;
         this.title = title;
         this.description = description;
-        this.category = category;
-        this.level = level;
+
+        // Category Validation
+        if (category.equals("Programming") ||
+            category.equals("Design") ||
+            category.equals("Business") ||
+            category.equals("Data Science") ||
+            category.equals("Language")) {
+
+            this.category = category;
+
+        } else {
+            throw new IllegalArgumentException("Invalid course category");
+        }
+
+        // Level Validation
+        if (level.equals("Beginner") ||
+            level.equals("Intermediate") ||
+            level.equals("Advanced")) {
+
+            this.level = level;
+
+        } else {
+            throw new IllegalArgumentException("Invalid course level");
+        }
+
         this.price = price;
         this.published = false;
 
@@ -79,7 +102,9 @@ public class Course {
 
     // Add Section
     public void addSection(Section section) {
+
         sections.add(section);
+
         System.out.println("Section added successfully!");
     }
 
@@ -94,6 +119,7 @@ public class Course {
         int totalLessons = 0;
 
         for (Section section : sections) {
+
             totalLessons += section.getLessonCount();
         }
 
@@ -102,6 +128,7 @@ public class Course {
 
     // Publish Course
     public void publishCourse() {
+
         published = true;
     }
 
@@ -120,6 +147,7 @@ public class Course {
         System.out.println("Total Lessons: " + getTotalLessonCount());
 
         for (Section section : sections) {
+
             section.displaySection();
         }
     }
