@@ -55,6 +55,7 @@ public class EnrollmentModels {
         public String studentId;
         public String courseId;
         public EnrollmentStatus status;
+        public double progressPercent = 0.0;
         public LocalDateTime enrollmentDate;
         public LocalDateTime expiryDate;
 

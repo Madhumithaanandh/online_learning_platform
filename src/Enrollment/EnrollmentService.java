@@ -136,6 +136,17 @@ public class EnrollmentService {
         }
     }
 
+    public EnrollmentModels.Enrollment getEnrollment(String enrollmentId) {
+        for (EnrollmentModels.Enrollment e : enrollments) {
+            if (e.enrollmentId.equals(enrollmentId)) return e;
+        }
+        return null;
+    }
+
+    public ArrayList<EnrollmentModels.Enrollment> getAllEnrollments() {
+        return new ArrayList<>(enrollments);
+    }
+
     // Display all enrollments
     public void displayEnrollments() {
 
